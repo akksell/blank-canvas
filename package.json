@@ -1,0 +1,19 @@
+{
+  "name": "blank-canvas",
+  "version": "1.0.0",
+  "description": "csce 470 project",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run start:client\" \"npm run start:api\"",
+    "start:client": "cd client && npm start",
+    "start:api": "cd api && python3 app.py"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
