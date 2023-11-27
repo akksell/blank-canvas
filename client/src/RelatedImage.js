@@ -1,7 +1,10 @@
-const RelatedImage = ({ path }) => {
+const RelatedImage = ({ path, score }) => {
   return (
-    <div className="flex items-center justify-items-center">
-      <img src={path} />
+    <div className="flex flex-col items-center justify-items-center">
+      <div>
+        <img src={path} />
+      </div>
+      <p>Cosine Similarity: {Number(score).toFixed(5) * 100}%</p>
     </div>
   );
 }
@@ -9,7 +12,7 @@ const RelatedImage = ({ path }) => {
 const RelatedImagesContainer = ({ images }) => {
   return (
     <div className="grid grid-cols-4 gap-4">
-      {images.map(image => <RelatedImage path={image.filename} />)}
+      {images.map(image => <RelatedImage path={image.filename} score={image.similarity} />)}
     </div>
   );
 }
