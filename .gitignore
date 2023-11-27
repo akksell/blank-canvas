@@ -3,3 +3,6 @@
 bun.lockb
 **/node_modules
 api/venv
+api/upload_folder/*
+!api/upload_folder/.gitkeep
+client/public/cartoon

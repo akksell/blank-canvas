@@ -1,34 +1,16 @@
 from flask import Flask, jsonify, request, flash, redirect
 import os
 from werkzeug.utils import secure_filename
+from lib.model.model import ImageEmbeddingModel
 
 upload_folder = "upload_folder"
 
 app = Flask(__name__)
 app.config['upload_folder'] = upload_folder
+app.config['model_folder'] = 'lib/model'
+embedder = ImageEmbeddingModel(app.config['model_folder'])
 
-@app.route('/test')
-def hello():
-  data = {
-    'message': 'received data',
-    'status': 200
-  }
-  return jsonify(data)
-
-@app.route('/upload')
-def upload():
-  return '''<!DOCTYPE html>
-              <html>
-                  <body>
-                      <form action = "/query" method = "POST" 
-                          enctype = "multipart/form-data">
-                          <input type = "file" name = "file" />
-                          <input type = "submit"/>
-                      </form>   
-                  </body>
-              </html>'''
-
-@app.route('/query', methods = ['GET', 'POST'])
+@app.route('/query', methods = ['POST'])
 def query():
   if request.method == 'POST':
     file = request.files['file']
@@ -37,8 +19,10 @@ def query():
       return redirect(request.url)
     else:
       filename = secure_filename(file.filename)
-      file.save(os.path.join(app.config['upload_folder'], filename))
-      return filename
+      filepath = os.path.join(app.config['upload_folder'], filename)
+      file.save(filepath)
+      similar_images = embedder.get_similar_images(filepath)
+      return jsonify(similar_images[:20])
 
 if __name__ == '__main__':
     app.run(debug=True)
