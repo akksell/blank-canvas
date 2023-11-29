@@ -38,12 +38,13 @@ function App() {
 
   return (
     <div className="App">
-      <div class="group flex grid grid-rows-4 grid-cols-1 items-center justify-center content-between pt-64 w-full bg-screen bg-center h-screen bg-[url('/public/header_canvas.jpg')] ">
+      <div class="group flex grid grid-rows-4 grid-cols-1 items-center justify-center content-between pt-60 w-full bg-screen bg-center h-screen bg-[url('/public/header_canvas.jpg')] ">
         <div class="text-center">
             <h1 class="text-grey text-9xl font-fontTitle group-hover:animate-change-font">Blank Canvas</h1>
         </div>
             
         <div class="flex items-center justify-center w-full">
+          {/* VVV h-3/4 */}
           <label for="dropzone-file" class="flex flex-col items-center justify-center h-64 w-1/2 border-2 border-gray-400 border-dashed rounded-lg cursor-pointer bg-transparent m-3">
               <div class="flex flex-col items-center justify-center pt-5 pb-6">
                   <svg class="w-12 h-12 mb-4 text-black-500 dark:text-black-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
