@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       keyframes:{
         'change-font':{
-          '0%':{ fontFamily: 'Handlee'},
+          '0%' :{ fontFamily: 'Handlee'},
           '20%':{ fontFamily: 'Finger Paint'},
           '40%':{ fontFamily: 'Sacramento'},
           '60%':{ fontFamily: 'Shadows Into Light Two'},
@@ -16,7 +16,7 @@ module.exports = {
         }
       },
       animation:{
-        'change-font': 'change-font 3s linear infinite'
+        'change-font': 'change-font 2s linear infinite'
       }, 
       fontFamily: {
         fontTitle: ['Handlee', 'Sacramento', 'Finger Paint', 'Shadows Into Light Two', 'Reenie Beanie']

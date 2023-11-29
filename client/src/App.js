@@ -38,9 +38,9 @@ function App() {
 
   return (
     <div className="App">
-      <div class="flex grid grid-rows-4 grid-cols-1 items-center justify-center content-between pt-64 w-full bg-screen bg-center h-screen bg-[url('/public/header_canvas.jpg')] ">
+      <div class="group flex grid grid-rows-4 grid-cols-1 items-center justify-center content-between pt-64 w-full bg-screen bg-center h-screen bg-[url('/public/header_canvas.jpg')] ">
         <div class="text-center">
-            <h1 class="text-grey text-9xl font-fontTitle animate-change-font">Blank Canvas</h1>
+            <h1 class="text-grey text-9xl font-fontTitle group-hover:animate-change-font">Blank Canvas</h1>
         </div>
             
         <div class="flex items-center justify-center w-full">
