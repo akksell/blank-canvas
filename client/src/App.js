@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import RelatedImageContainer from './RelatedImage';
+import { RelatedImageContainer } from './components';
 
 function App() {
   const [imageFile, setImageFile] = useState(null);
@@ -122,13 +122,13 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App w-full h-full bg-slate-950">
       <div className="container mx-auto">
-        <div className="flex flex-col items-center">
+        {/* <div className="flex flex-col items-center">
           <input type="file" onChange={(e) => setImageFile(e.target.files[0])} />
           <button onClick={() => submitImage()} class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
             Submit</button>
-        </div>
+        </div> */}
 
         {errors?.length > 0 && (
           <div className='flex flex-col items-center'>
@@ -148,7 +148,12 @@ function App() {
         )}
 
         {relatedImages.length > 0 && (
-          <RelatedImageContainer images={relatedImages} />
+          <>
+            <div className='h-32 flex justify-center'>
+              <img src="stagelights.png" alt="Stagelighting" className="h-full" />
+            </div>
+            <RelatedImageContainer images={relatedImages} />
+          </>
         )}
       </div>
     </div>
