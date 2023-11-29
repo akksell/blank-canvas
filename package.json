@@ -9,7 +9,7 @@
   "scripts": {
     "start": "concurrently \"npm run start:client\" \"npm run start:api\"",
     "start:client": "cd client && npm start",
-    "start:api": "cd api && python3 app.py"
+    "start:api": "cd api && py -3.10 app.py"
   },
   "author": "",
   "license": "ISC",

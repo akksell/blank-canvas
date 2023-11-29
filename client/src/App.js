@@ -1,28 +1,52 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { UploadPage, ResultPage } from './pages';
 
 function App() {
-  const [data, setData] = useState(undefined);
+  const [imageFile, setImageFile] = useState(null);
+  const [relatedImages, setRelatedImages] = useState([]);
+  const [errors, setErrors] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const getData = async () => {
-      const response = await fetch('/test');
-      console.log(response);
-      const dataRes = await response.json();
-      setData(dataRes);
+  const submitImage = async () => {
+    setLoading(true);
+    if (!imageFile) {
+      const error = {
+        type: 'MISSING_FILE',
+        message: 'Missing image file'
+      };
+      setErrors([ error ]);
+      setLoading(false);
+      return;
     }
-    getData();
-  }, []);
+
+    const form = new FormData();
+    form.append('file', imageFile);
+    const response = await fetch('/query', {
+      method: 'POST',
+      body: form
+    });
+    const results = await response.json();
+    if (results?.errors) {
+      setErrors(results.errors);
+      setRelatedImages([]);
+    } else {
+      setErrors([]);
+      setRelatedImages(results);
+    }
+    setLoading(false);
+  }
+
+  if (relatedImages?.length > 0) {
+    return (
+      <>
+        <ResultPage relatedImages={relatedImages} goBack={() => setRelatedImages([])} />
+      </>
+    );
+  }
 
   return (
     <div className="App">
-      <p>Hello World! Testing Data Fetch...</p>
-      <p>Result:</p>
-      {data && (
-        <>
-          <p>Message: {data.message}</p>
-          <p>Status: {data.status}</p>
-        </>
-      )}
+      <UploadPage loading={loading} errors={errors} setImageFile={setImageFile} submitImage={submitImage} />
     </div>
   );
 }
