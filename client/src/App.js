@@ -62,8 +62,7 @@ function App() {
           </div> 
 
           <div class="flex items-center justify-center">
-            {/* FIXME MAKE BUTTON LOOK COOLER */}
-          <button onClick={() => submitImage()} class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow m-3">
+          <button onClick={() => submitImage()} class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-white-400 rounded shadow m-3 px-7 pb-2.5 pt-3 text-lg">
             Submit
           </button>
           </div>
