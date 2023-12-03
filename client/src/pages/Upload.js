@@ -4,8 +4,6 @@ const UploadPage = ({ loading, errors, setImageFile, submitImage }) => {
   function handleChange(e) {
     setImageFile(e.target.files[0]);
     setFile(URL.createObjectURL(e.target.files[0]));
-    // setCaption("Uploaded Image");
-    // (e) => setImageFile(e.target.files[0]);
   };
   
   return (
