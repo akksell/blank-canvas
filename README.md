@@ -2,6 +2,14 @@
 
 The backend of this project was done in Python while the frontend was done with React and the Tailwind css framework. We used a Disney image dataset with the classification of six different cartoon characters (Donald Duck, Mickey Mouse, Minions, Olaf, Pooh, and Pumba) and used the Mediapipe package along with their pretrained mobile net model in order to extract embeddings from each image. To find similar images to the uploaded reference image, we use the cosine of the uploaded image's embeddings with all training set image's embeddings to give them all scores. We then use our neural network to weigh the cosine scores with the probability that the image is a specific classification, with the same classification being weighed much higher. The top 20 results are then posted for the user to look through.
 
+# Demo Video
+
+Click below for redirect to video.
+
+[![Demo Video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://youtu.be/_W6rPWig5i0)
+
+If redirection fails, the demo video can be found at https://youtu.be/_W6rPWig5i0
+
 # Setup and Installation
 
 Before you start setting up the application, run
